@@ -23,13 +23,10 @@ const Notes = () => {
 
   const handleAddNote = event => {
     event.preventDefault()
-    if (title && text) {
-      setList(prevList => {
-        return [...prevList, {title, text}]
-      })
-      setTitle('')
-      setText('')
-    }
+
+    setList(prevList => [...prevList, {title, text}])
+    setTitle('')
+    setText('')
   }
 
   return (
@@ -69,7 +66,7 @@ const Notes = () => {
       ) : (
         <NoteList role="list">
           {list.map(e => (
-            <li role="listitem" key={e.title}>
+            <li key={e.title}>
               <NoteItem item={e} />
             </li>
           ))}
